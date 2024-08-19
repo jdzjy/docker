@@ -60,18 +60,18 @@ docker run -dit \
 --restart always \
 whyour/qinglong:latest
 ```
-
+### debian
 ```
 docker run -dit \
--v $PWD/ql3:/ql/data \
--v $PWD/ql3/jbot:/ql/data/jbot \
+-v $PWD/ql:/ql/data \
+-v $PWD/ql/jbot:/ql/data/jbot \
 -p 8899:5700 \
 -e ENABLE_HANGUP=false \
 -e ENABLE_WEB_PANEL=true \
---name wskey \
---hostname wskey \
---restart always \
-whyour/qinglong:latest
+--name qinglong \
+--hostname qinglong \
+--restart unless-stopped \
+whyour/qinglong:debian-python3.10
 ```
 自定义版本：whyour/qinglong:2.13.8
 
@@ -372,8 +372,8 @@ windyday/windyday:arm64
 ## 无界
 ```
 docker run -dit \
- -v /root/BncrData:/bncr/BncrData \
- -p 9098:9090 \
+ -v /volume1/docker/Bncr:/bncr/BncrData \
+ -p 9090:9090 \
  --name bncr \
  --hostname bncr \
  --restart on-failure:5 \
