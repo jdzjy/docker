@@ -60,7 +60,7 @@ docker run -dit \
 --restart always \
 whyour/qinglong:latest
 ```
-### debian
+### 青龙debian
 ```
 docker run -dit \
 -v $PWD/ql:/ql/data \
